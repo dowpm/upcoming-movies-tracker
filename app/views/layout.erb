@@ -49,7 +49,7 @@
             <li class="<%= @active_movies %>"><a href="#about">Movies</a></li>
             <li class="<%= @active_start %>"><a href="#contact">Stars</a></li>
             <% if logged_in? %>
-              <li class="<%= @active_profile %>"><a href="/">My Profile</a></li>
+              <li class="<%= @active_profile %>"><a href="/"><%= @current_user.username%>' Profile</a></li>
               <li class="">
               <form action="/logout" method="post" class="navbar-form">
                 <button type="submit" class="btn btn-default">Log out</button>
