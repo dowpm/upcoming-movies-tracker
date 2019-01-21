@@ -46,15 +46,20 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class=""><a href="#about">Movies</a></li>
-            <li class=""><a href="#contact">Stars</a></li>
-            <li class=""><a href="#contact">Signup</a></li>
-            <li class=""><a href="#contact">Login</a></li>
-            <li class="">
-            <form action="/logout" method="post" class="navbar-form">
-              <button type="submit" class="btn btn-default">Log out</button>
-            </form>
-            </li>
+            <li class="<%= @active_movies %>"><a href="#about">Movies</a></li>
+            <li class="<%= @active_start %>"><a href="#contact">Stars</a></li>
+            <% if logged_in? %>
+              <li class="<%= @active_profile %>"><a href="/">My Profile</a></li>
+              <li class="">
+              <form action="/logout" method="post" class="navbar-form">
+                <button type="submit" class="btn btn-default">Log out</button>
+              </form>
+              </li>
+            <% else %>
+              <li class="<%= @active_signup %>"><a href="/signup">Signup</a></li>
+              <li class="<%= @active_signin %>"><a href="/login">Login</a></li>
+            <% end %>
+            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     use Rack::Flash
 
     get '/signup' do
+        @active_signup = 'active'
         redirect to '/' if logged_in?
         @user = User.new
         erb :'users/signup'
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
+        @active_signin = 'active'
         redirect to '/' if logged_in?
         erb :'users/login'
     end
