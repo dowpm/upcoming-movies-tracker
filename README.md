@@ -12,6 +12,7 @@ Clone this repo, and type the below
     $ bundle
     $ rackup config.ru 
 or
+
     $ shotgun
 
 open the IP address in a browser.
