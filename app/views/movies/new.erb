@@ -21,7 +21,7 @@
     <div class="form-group">
         <label for='genre' class="col-sm-3 control-label">Genre</label>
         <div class="col-sm-6">
-            <input type="text" name="movie[genre]" id='genre' list="genre_list" class="form-control">
+            <input type="text" name="genre[name]" id='genre' list="genre_list" class="form-control" required>
             <datalist id="genre_list">
                 <% @genres.each do |genre|%>
                     <option value="<%= genre.id%>"><%= genre.name%></option>
@@ -32,7 +32,7 @@
     <div class="form-group">
         <label for='date' class="col-sm-3 control-label">Release Date</label>
         <div class="col-sm-6">
-            <input type="date" name="movie[release_date]" id='date' class="form-control">
+            <input type="date" name="movie[release_date]" id='date' class="form-control" required>
         </div>
     </div>
     
