@@ -5,6 +5,7 @@ class Movie < ActiveRecord::Base
     validates :genre_id, presence: true
 
     def genre_name
+        return "" unless genre
         genre.name 
     end
 end

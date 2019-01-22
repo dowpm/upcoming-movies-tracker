@@ -9,7 +9,7 @@
 <% end %>
 <% if flash[:alert] %>
     <div class="alert alert-danger" role="alert"> 
-    <%= flash[:msg] %>
+    <%= flash[:alert] %>
     </div>
 <% end %>
 
@@ -18,28 +18,28 @@
     <div class="form-group">
         <label for='name' class="col-sm-3 control-label">Name</label>
         <div class="col-sm-6">
-            <input type="text" name="movie[name]" id='name' class="form-control">
+            <input type="text" name="movie[name]" id='name' value="<%=@movie.name %>" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for='director' class="col-sm-3 control-label">Director</label>
         <div class="col-sm-6">
-            <input type="text" name="movie[director]" id='director' class="form-control">
+            <input type="text" name="movie[director]" id='director' value="<%=@movie.director %>" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for='star' class="col-sm-3 control-label">Star</label>
         <div class="col-sm-6">
-            <input type="text" name="movie[star]" id='star' class="form-control">
+            <input type="text" name="movie[star]" id='star' value="<%=@movie.star %>" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for='genre' class="col-sm-3 control-label">Genre</label>
         <div class="col-sm-6">
-            <input type="text" name="genre[name]" id='genre' list="genre_list" class="form-control" required>
+            <input type="text" name="genre[name]" id='genre' value="<%=@movie.genre_name %>" list="genre_list" class="form-control" >
             <datalist id="genre_list">
                 <% @genres.each do |genre|%>
-                    <option value="<%= genre.id%>"><%= genre.name%></option>
+                    <option><%= genre.name%></option>
                 <% end %>
             </datalist>
         </div>
@@ -47,14 +47,14 @@
     <div class="form-group">
         <label for='date' class="col-sm-3 control-label">Release Date</label>
         <div class="col-sm-6">
-            <input type="date" name="movie[release_date]" id='date' class="form-control" required>
+            <input type="date" name="movie[release_date]" id='date' value="<%=@movie.release_date %>" class="form-control" >
         </div>
     </div>
     
     <div class="form-group">
         <label for='summary' class="col-sm-3 control-label">Summary</label>
         <div class="col-sm-6">
-            <textarea name="movie[summary]" id='summary' class="form-control"></textarea>
+            <textarea name="movie[summary]" id='summary' value="<%=@movie.summary %>" class="form-control"></textarea>
         </div>
     </div>
     <div class="form-group">
