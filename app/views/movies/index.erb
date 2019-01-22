@@ -3,6 +3,11 @@
     <p class="text-center"><%= flash[:alert] %></p>
     </div>
 <% end %>
+<% if flash[:info] %>
+    <div class="alert alert-info" role="alert"> 
+    <p class="text-center"><%= flash[:info] %></p>
+    </div>
+<% end %>
 
 <h1>Listing movies</h1>
     <div class="row">
