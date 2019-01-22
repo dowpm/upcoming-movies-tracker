@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
     use Rack::Flash
 
     get '/movies' do
+        @active_profile = 'active'
         require_logged_in
         # @movies = @current_user.movies
         @movies = Movie.all
