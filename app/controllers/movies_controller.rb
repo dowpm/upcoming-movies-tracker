@@ -46,6 +46,7 @@ class MoviesController < ApplicationController
         @movie.genre = Genre.find_or_create_by(params[:genre]) unless params[:genre][:name].empty?
 
         if @movie.save
+            flash[:info] = "'#{@movie.name}' has been successfully added"
             redirect '/movies'
         else
             @genres = Genre.all
@@ -70,6 +71,7 @@ class MoviesController < ApplicationController
         if @movie
             @movie.genre = Genre.find_or_create_by(params[:genre]) unless params[:genre][:name].empty?
             if @movie.update(params[:movie])
+                flash[:info] = "'#{@movie.name}' has been successfully edited"
                 redirect '/movies'
             else
                 erb :'movies/edit'
@@ -83,7 +85,12 @@ class MoviesController < ApplicationController
         require_logged_in
         movie = @current_user.movies.find_by(id: params[:id])
         # raise movie.inspect
-        movie.delete if movie
+        if movie
+            flash[:info] = "'#{movie.name}' has been successfully deleted"
+            movie.delete
+        else
+            flash[:alerte] = "Cannot delete this unknown movie"
+        end
         redirect '/movies'
     end
 end
