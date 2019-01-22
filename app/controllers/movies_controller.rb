@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
         @active_profile = 'active'
         require_logged_in
         # @movies = @current_user.movies
-        @movies = Movie.all
+        @movies = @current_user.movies
         erb :'movies/index'
     end
 

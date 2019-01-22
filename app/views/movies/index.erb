@@ -1,5 +1,8 @@
 <h1>Listing movies</h1>
-
+    <div class="row">
+      <div class="col-md-10"></div>
+      <div class=""><a type="button" class="btn btn-primary" href="/movies/new">New Movie</a></div>
+    </div>
 <table class="table">
   <thead>
     <tr>
@@ -14,6 +17,7 @@
       <td><strong>Star</strong></td>
       <td><strong>Genre</strong></td>
       <td><strong>Release Date</strong></td>
+      <td><strong>Action</strong></td>
     </tr>
     <% @movies.each do |movie| %>
       <tr>
@@ -24,13 +28,10 @@
         <td><a href="/genres/<%=movie.genre.id%>"><%= movie.genre_name %></a></td>
         <td><%= movie.release_date %></td>
         
-        <td><a href="/movies/<%= movie.id %>">Show</a></td>
+        <td><a class="btn btn-info btn-xs" href="/movies/<%= movie.id %>"> Show</span></a></td>
         
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<% if logged_in?%>
-    <p><a type="button" class="btn btn-default" href="/movies/new">New Movie</a></p>
-<% end %>
