@@ -5,11 +5,16 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/new' do
-        @movie = Movie.new(user_id: session[:user_id])
+        # @movie = Movie.new(user_id: session[:user_id])
+        @genres = Genre.all
         if logged_in?
             erb :'movies/new'
         else
             redirect to '/login'
         end
+    end
+
+    post '/movies' do
+        raise params.inspect
     end
 end
