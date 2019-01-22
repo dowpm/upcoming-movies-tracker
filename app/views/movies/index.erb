@@ -11,6 +11,8 @@
     <tr> 
       <td><strong>Name</strong></td>
       <td><strong>Director</strong></td>
+      <td><strong>Star</strong></td>
+      <td><strong>Genre</strong></td>
       <td><strong>Release Date</strong></td>
     </tr>
     <% @movies.each do |movie| %>
@@ -18,6 +20,8 @@
 
         <td><%= movie.name %></td>
         <td><%= movie.director %></td>
+        <td><%= movie.star %></td>
+        <td><a href="/genres/<%=movie.genre.id%>"><%= movie.genre_name %></a></td>
         <td><%= movie.release_date %></td>
         
         <td><a href="/movies/<%= movie.id %>">Show</a></td>

@@ -1,0 +1,47 @@
+<h2 class='text-center'>New Movie</h2>
+<form action="/movies" method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label for='name' class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" name="movie[name]" id='name' class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='director' class="col-sm-3 control-label">Director</label>
+        <div class="col-sm-6">
+            <input type="text" name="movie[director]" id='director' class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='date' class="col-sm-3 control-label">Release Date</label>
+        <div class="col-sm-6">
+            <input type="date" name="movie[release_date]" id='date' class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+    <label for='summary' class="col-sm-3 control-label">Stars</label>
+    <div class='checkbox'>
+        <label class="col-md-offset-1">
+        <input type="checkbox" value="option1"> 1
+        </label>
+        <label class="col-md-offset-1">
+        <input type="checkbox" value="option1"> 1
+        </label>
+        <label class="col-md-offset-1">
+        <input type="checkbox" value="option1"> 1
+        </label>
+        <label class="col-md-offset-1">
+        <input type="checkbox" value="option1"> 1
+        </label>
+        <label class="col-md-offset-1">
+        <input type="checkbox" value="option1"> 1
+        </label>
+    <div>
+    </div>
+    <div class="form-group">
+        <label for='summary' class="col-sm-3 control-label">Summary</label>
+        <div class="col-sm-6">
+            <textarea name="movie[summary]" id='summary' class="form-control"></textarea>
+        </div>
+    </div>
+</form>
