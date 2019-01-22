@@ -1,0 +1,62 @@
+<% if @movie.errors.any? %>
+    <div class="alert alert-danger" role="alert"> 
+        <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<h2 class='text-center'>Edit Movie</h2>
+<form action="/movies/<%= @movie.id %>" method="POST" class="form-horizontal">
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+        <label for='name' class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" name="movie[name]" id='name' value="<%=@movie.name %>" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='director' class="col-sm-3 control-label">Director</label>
+        <div class="col-sm-6">
+            <input type="text" name="movie[director]" id='director' value="<%=@movie.director %>" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='star' class="col-sm-3 control-label">Star</label>
+        <div class="col-sm-6">
+            <input type="text" name="movie[star]" id='star' value="<%=@movie.star %>" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='genre' class="col-sm-3 control-label">Genre</label>
+        <div class="col-sm-6">
+            <input type="text" name="genre[name]" id='genre' value="<%=@movie.genre_name %>" list="genre_list" class="form-control" >
+            <datalist id="genre_list">
+                <% @genres.each do |genre|%>
+                    <option><%= genre.name%></option>
+                <% end %>
+            </datalist>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for='date' class="col-sm-3 control-label">Release Date</label>
+        <div class="col-sm-6">
+            <input type="date" name="movie[release_date]" id='date' value="<%=@movie.release_date %>" class="form-control" >
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for='summary' class="col-sm-3 control-label">Summary</label>
+        <div class="col-sm-6">
+            <textarea name="movie[summary]" id='summary' class="form-control"><%=@movie.summary %></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <button type='submit' class="form-control btn btn-primary" >Edit Movie</button>
+        </div>
+    </div>
+</form>
