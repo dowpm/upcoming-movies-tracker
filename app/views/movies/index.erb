@@ -1,0 +1,32 @@
+<h1>Listing movies</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr> 
+      <td><strong>Name</strong></td>
+      <td><strong>Director</strong></td>
+      <td><strong>Release Date</strong></td>
+    </tr>
+    <% @movies.each do |movie| %>
+      <tr>
+
+        <td><%= movie.name %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.release_date %></td>
+        
+        <td><a href="/movies/<%= movie.id %>">Show</a></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<% if logged_in?%>
+    <p><a type="button" class="btn btn-default" href="/movies/new">New Movie</a></p>
+<% end %>
