@@ -61,6 +61,7 @@ class MoviesController < ApplicationController
             @genres = Genre.all
             erb :'movies/edit'
         else
+            flash[:alert] = "Cannot find this movie"
             redirect '/movies'
         end
     end
