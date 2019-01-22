@@ -1,0 +1,30 @@
+<h1><%= @genre.name%>'s movies</h1>
+    
+      <div class=""><a type="button" class="btn btn-primary" href="/movies">Back</a></div>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr> 
+      <td><strong>Name</strong></td>
+      <td><strong>Director</strong></td>
+      <td><strong>Star</strong></td>
+      <td><strong>Release Date</strong></td>
+    </tr>
+    <% @movies.each do |movie| %>
+      <tr>
+
+        <td><%= movie.name %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.star %></td>
+        <td><%= movie.release_date %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
