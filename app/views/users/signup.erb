@@ -8,29 +8,30 @@
     </div>
 <% end %>
 
-<h3>Sign Up</h3>
+<h3 class="text-center">Sign Up</h3>
 <form action="/signup" method="POST" class="form-horizontal">
     <div class="form-group">
-        <label for='username' class="col-sm-2 control-label">username</label>
-        <div class="col-sm-10">
+        <label for='username' class="col-sm-3 control-label">username</label>
+        <div class="col-sm-6">
             <input type="text" name="user[username]" id='username' class="form-control">
         </div>
     </div>
     <div class="form-group">
-        <label for='password' class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
+        <label for='password' class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-6">
             <input type="password" name="user[password]" id='password' class="form-control">
         </div>
     </div>
     <div class="form-group">
-        <label for='password-conf' class="col-sm-2 control-label">Password Confirmation</label>
-        <div class="col-sm-10">
+        <label for='password-conf' class="col-sm-3 control-label">Password Confirmation</label>
+        <div class="col-sm-6">
             <input type="password" name="user[password_confirmation]" id='password-conf' class="form-control">
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Sign Up</button>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-info">Sign Up</button>
         </div>
   </div>
 </form>
