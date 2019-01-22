@@ -1,3 +1,18 @@
+<% if @movie.errors.any? %>
+    <div class="alert alert-danger" role="alert"> 
+        <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+<% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert"> 
+    <%= flash[:msg] %>
+    </div>
+<% end %>
+
 <h2 class='text-center'>New Movie</h2>
 <form action="/movies" method="POST" class="form-horizontal">
     <div class="form-group">
