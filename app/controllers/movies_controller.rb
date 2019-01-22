@@ -20,6 +20,17 @@ class MoviesController < ApplicationController
         end
     end
 
+    get '/movies/:id' do
+        require_logged_in
+        @movie = @current_user.movies.find_by(id: params[:id])
+        if @movie
+            erb :'movies/show'
+        else
+            flash[:alert] = "Cannot find this movie"
+            redirect '/movies'
+        end
+    end
+
     post '/movies' do
         # raise params.inspect
         require_logged_in
