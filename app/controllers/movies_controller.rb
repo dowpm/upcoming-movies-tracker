@@ -18,13 +18,18 @@ class MoviesController < ApplicationController
 
     post '/movies' do
         # raise params.inspect
+        require_logged_in
+
         movie = Movie.find_by(name: params[:movie][:name])
         flash[:alert] = "Movie's alredy there"
         redirect '/movies/new' if movie
+
         genre = Genre.find_or_create_by(params[:genre])
         @movie = Movie.new params[:movie]
         @movie.genre = genre
+        
         if @movie.save
+            @current_user.movies << @movie
             redirect '/movies'
         else
             erb :'/movies/new'
