@@ -14,8 +14,10 @@ ActiveRecord::Schema.define(version: 2019_01_21_222102) do
 
   create_table "movies", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "genre_id"
     t.string "name"
     t.string "director"
+    t.string "star"
     t.date "release_date"
     t.string "summary"
     t.datetime "created_at", null: false
