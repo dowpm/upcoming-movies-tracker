@@ -53,7 +53,7 @@ class MoviesController < ApplicationController
         end
     end
 
-    get '/movies/edit/:id' do
+    get '/movies/:id/edit' do
         require_logged_in
         @movie = @current_user.movies.find_by(id: params[:id])
         if @movie
@@ -79,7 +79,7 @@ class MoviesController < ApplicationController
         end
     end
 
-    delete '/movies/:id/destroy' do
+    delete '/movies/:id' do
         require_logged_in
         movie = @current_user.movies.find_by(id: params[:id])
         # raise movie.inspect
