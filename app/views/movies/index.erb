@@ -1,3 +1,9 @@
+<% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert"> 
+    <p class="text-center"><%= flash[:alert] %></p>
+    </div>
+<% end %>
+
 <h1>Listing movies</h1>
     <div class="row">
       <div class="col-md-10"></div>
