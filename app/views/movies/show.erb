@@ -24,7 +24,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3" style="padding-top: 30px">
-        <form method="post" action="/movies/destroy">
+        <form method="post" action="/movies/<%= @movie.id%>/destroy">
             <input type="hidden" name="_method" value="delete">
             <button type="submit" class="btn btn-danger btn-lg btn-block">Delete Movie</button>
         </form>

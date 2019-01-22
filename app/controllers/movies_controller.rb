@@ -78,4 +78,12 @@ class MoviesController < ApplicationController
             redirect '/movies'
         end
     end
+
+    delete '/movies/:id/destroy' do
+        require_logged_in
+        movie = @current_user.movies.find_by(id: params[:id])
+        # raise movie.inspect
+        movie.delete if movie
+        redirect '/movies'
+    end
 end
