@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     get '/signup' do
         @active_signup = 'active'
-        redirect to '/' if logged_in?
+        redirect to '/movies' if logged_in?
         @user = User.new
         erb :'users/signup'
     end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:msg] = "You've been successfully registered"
-            redirect '/'
+            redirect '/movies'
         else            
             erb :'users/signup'
         end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     get '/login' do
         @active_signin = 'active'
-        redirect to '/' if logged_in?
+        redirect to '/movies' if logged_in?
         erb :'users/login'
     end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         @user = User.find_by username: params[:user][:username]
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect '/'
+            redirect '/movies'
         else
             flash[:msg] = "The username or password did not match our records. Please try again"
             redirect '/login'
