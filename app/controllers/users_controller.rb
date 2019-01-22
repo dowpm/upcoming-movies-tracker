@@ -13,7 +13,8 @@ class UsersController < ApplicationController
         @user = User.new params[:user]
 
         if @user.save
-            flash[:msg] = "You've been successfully registered"
+            session[:user_id] = @user.id
+            flash[:info] = "You've been successfully registered"
             redirect '/movies'
         else            
             erb :'users/signup'
