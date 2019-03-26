@@ -8,16 +8,16 @@ class MoviesController < ApplicationController
         @movies = @current_user.movies
         erb :'movies/index'
     end
-
+ 
     get '/movies/new' do
         require_logged_in
         @movie = @current_user.movies.build
         @genres = Genre.all
-        if logged_in?
+        # if logged_in?
             erb :'movies/new'
-        else
-            redirect to '/login'
-        end
+        # else
+            # redirect to '/login'
+        # end
     end
 
     get '/movies/:id' do
